@@ -8,34 +8,26 @@ module.exports = {
             return;
         }
         else {
-            let promiseArray = createPromiseArray(message, parseInt(args[0]));
+            createPromises(message, parseInt(args[0]));
             message.channel.send("Creating invites... gimme a sec");
-            Promise.all(promiseArray).then((invites) => {
-                for(var i = 0; i < invites.length; i++) {
-                    message.author.send(invites[i].url);
-                }
-
-                message.channel.send("The invite links should be in your DMs now!")
-            });
         }
     }
 }
 
-createPromiseArray = (message, inviteNumber) => {
-    let promiseArray = [];
-
+createPromises = (message, inviteNumber) => {
     for(var i = 0; i < inviteNumber; i++) {
-        promiseArray.push(createInvite(message));
+        createInvite(message);
     }
-
-    return promiseArray;
 }
 
 createInvite = (message) => {
-    return message.channel.createInvite({
+    message.channel.createInvite({
         options: {
             maxUses: 1,
             unique: true
         }
+    })
+    .then((invite) => {
+        message.author.send(invite.url);
     });
 }
