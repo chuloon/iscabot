@@ -16,7 +16,7 @@ module.exports = {
 
 createPromises = (message, inviteNumber) => {
     for(var i = 0; i < inviteNumber; i++) {
-        createInvite(message, index);
+        createInvite(message, i);
     }
 }
 
