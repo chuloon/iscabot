@@ -16,15 +16,16 @@ module.exports = {
 
 createPromises = (message, inviteNumber) => {
     for(var i = 0; i < inviteNumber; i++) {
-        createInvite(message);
+        createInvite(message, index);
     }
 }
 
-createInvite = (message) => {
+createInvite = (message, index) => {
     message.channel.createInvite({
         options: {
             maxUses: 1,
-            unique: true
+            unique: true,
+            reason: "creating invite " + index
         }
     })
     .then((invite) => {
