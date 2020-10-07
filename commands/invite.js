@@ -9,7 +9,7 @@ module.exports = {
         }
         else {
             let promiseArray = createPromiseArray(message, parseInt(args[0]));
-
+            message.channel.send("Creating invites... gimme a sec");
             Promise.all(promiseArray).then((invites) => {
                 for(var i = 0; i < invites.length; i++) {
                     message.channel.send(invites[i].url);
