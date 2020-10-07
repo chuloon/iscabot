@@ -25,7 +25,7 @@ createInvite = (message, index) => {
         options: {
             maxUses: 1,
             unique: true,
-            reason: "creating invite " + index
+            maxAge: 604800 + index
         }
     })
     .then((invite) => {
