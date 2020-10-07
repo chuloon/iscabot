@@ -24,7 +24,6 @@ createInvite = (message) => {
     message.channel.createInvite({
         options: {
             maxUses: 1,
-            unique: true
         }
     })
     .then((invite) => {
