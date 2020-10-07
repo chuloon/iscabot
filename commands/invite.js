@@ -12,8 +12,10 @@ module.exports = {
             message.channel.send("Creating invites... gimme a sec");
             Promise.all(promiseArray).then((invites) => {
                 for(var i = 0; i < invites.length; i++) {
-                    message.channel.send(invites[i].url);
+                    message.author.send(invites[i].url);
                 }
+
+                message.channel.send("The invite links should be in your DMs now!")
             });
         }
     }
