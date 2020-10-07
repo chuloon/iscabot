@@ -30,7 +30,7 @@ createPromiseArray = (message, inviteNumber) => {
 }
 
 createInvite = (message) => {
-    return message.guild.createInvite({
+    return message.channel.createInvite({
         options: {
             maxUses: 1,
             unique: true
