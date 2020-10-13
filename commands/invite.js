@@ -23,6 +23,7 @@ createPromises = (message, inviteNumber) => {
 createInvite = (message) => {
     message.channel.createInvite({
         maxUses: 1,
+        maxAge: 0,
         unique: true,
     })
     .then((invite) => {
